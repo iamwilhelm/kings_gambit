@@ -1,0 +1,26 @@
+# ignore emacs and other backup files
+*~
+\#*\#
+.\#*
+
+# various rails files should be ignored
+.bundle
+.autotest
+log/*
+tmp/*
+doc/app/*
+coverage/*
+.DS_Store
+**/.DS_Store
+.dotest/*
+app/stylesheets/.sass-cache/*
+.sass-cache/*
+vendor/plugins/exception_notification/*
+*.swp
+.*.rb.swp
+public/system
+
+# ignore sqlite 3 stuff for development
+*.sqlite3
+db/development.sqlite3
+
