@@ -17,6 +17,12 @@ module groove(height, inner_radius, offset) {
 }
 // groove(3, 5, 5) cylinder(10, 6, 6);
 
+module saucer(height, radius) {
+  cylinder(height / 2, radius, 0);
+  translate([0, 0, -height / 2]) cylinder(height / 2, 0, radius);
+}
+// saucer(8, 10);
+
 /* Building parts for chess pieces */
 module base(height = 5, radius) {
   indent_height = 3;

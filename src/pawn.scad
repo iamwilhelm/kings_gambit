@@ -14,7 +14,7 @@ module Pawn() {
         body(body_height, body_radius * 0.6);
       }
       translate([0, 0, body_height]) { 
-        ring(1, 0, body_radius);
+        saucer(8, body_radius);
         translate([0, 0, 6]) sphere(6);
       }
     }
