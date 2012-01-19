@@ -38,8 +38,32 @@ module base(height = 5, radius) {
   }
 }
 
-module body(height, radius) {
-  cylinder(height, radius, radius * 0.8);
+module neck(height, radius) {
+  union() {
+    cylinder(height * 0.2, radius, radius * 0.8);
+    cylinder(height, radius * 0.6, radius * 0.8 * 0.6);
+  }
 }
+// body(20, 10);
 
+module piece_body(base_radius, body_base_ratio) {
+  base_height = base_radius * 4 / 5;
+  body_radius = base_radius * cos(asin (base_height / base_radius));
+  body_height = base_radius * body_base_ratio;
+
+  union() {
+    base(base_height, base_radius);
+
+    translate([0, 0, base_height]) {
+      neck(body_height, body_radius);
+
+      translate([0, 0, body_height]) { 
+        for (i = [0 : $children]) {
+          child(i);
+        }
+      }
+    }
+  }
+
+}
 
