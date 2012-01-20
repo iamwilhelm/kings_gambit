@@ -23,6 +23,17 @@ module saucer(height, radius) {
 }
 // saucer(8, 10);
 
+module teardrop(head_ratio, radius) {
+  theta = asin(head_ratio);
+  r = radius * cos(theta);
+  h = r * tan(90 - theta);
+
+  sphere(radius);
+  translate([0, 0, radius * head_ratio])
+    cylinder(h, r, 0);
+    translate([0, 0, 1.1 * h]) child(0);
+}
+
 /* Building parts for chess pieces */
 module base(height = 5, radius) {
   indent_height = 3;

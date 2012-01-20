@@ -1,19 +1,7 @@
 use <parts.scad>;
 
 $fn=30;
-module teardrop(head_ratio, radius) {
-  theta = asin(head_ratio);
-  r = radius * cos(theta);
-  h = r * tan(90 - theta);
-
-  sphere(radius);
-  translate([0, 0, radius * head_ratio])
-    cylinder(h, r, 0);
-    translate([0, 0, 1.1 * h]) child(0);
-}
-
 module bishop_head(head_ratio, body_radius) {
-
   difference() {
     union() {
       teardrop(head_ratio, body_radius)
@@ -25,7 +13,6 @@ module bishop_head(head_ratio, body_radius) {
       translate([body_radius / 4, -body_radius, 0]) 
         cube([body_radius * 2, body_radius * 2, body_radius / 4]);
   }
-
 }
 
 module Bishop() {
