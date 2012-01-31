@@ -38,8 +38,8 @@ module teardrop(head_ratio, radius) {
 module base(height = 5, radius) {
   indent_height = 3;
   indent_ratio = 0.6;
-  indent_groove = height * indent_perc * 0.4;
-  indent_offset = height * indent_perc * 0.6;
+  indent_groove = height * 0.4;
+  indent_offset = height * 0.6;
 
   groove(height * 0.15, radius * 0.8, height * 0.3) {
     intersection() {
