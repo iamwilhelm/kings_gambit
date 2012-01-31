@@ -17,7 +17,7 @@ module groove(height, inner_radius, offset) {
 }
 // groove(3, 5, 5) cylinder(10, 6, 6);
 
-module saucer(height, radius) {
+module toytop(height, radius) {
   cylinder(height / 2, radius, 0);
   translate([0, 0, -height / 2]) cylinder(height / 2, 0, radius);
 }
@@ -57,10 +57,10 @@ module neck(height, radius) {
 }
 // neck(20, 10);
 
-module collar(neck_radius) {
-  saucer(neck_radius, neck_radius);
+module double_collar(neck_radius) {
+  toytop(neck_radius, neck_radius);
   translate([0, 0, neck_radius * 0.5]) {
-    saucer(10, neck_radius * 0.8);
+    toytop(10, neck_radius * 0.8);
     translate([0, 0, neck_radius]) { 
       for (i = [0 : $children - 1]) {
         child(i);

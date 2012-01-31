@@ -25,7 +25,7 @@ module Bishop() {
   piece_body(base_radius) {
     neck(neck_height, neck_radius);
     translate([0, 0, neck_height]) {
-      collar(neck_radius) {
+      double_collar(neck_radius) {
         bishop_head(0.45, neck_radius);
       }
     }

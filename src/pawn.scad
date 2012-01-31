@@ -10,7 +10,7 @@ module Pawn() {
   piece_body(base_radius) {
     neck(neck_height, neck_radius);
     translate([0, 0, neck_height]) {
-      saucer(neck_radius, neck_radius);
+      toytop(neck_radius, neck_radius);
       translate([0, 0, neck_radius]) sphere(neck_radius);
     }
   }
