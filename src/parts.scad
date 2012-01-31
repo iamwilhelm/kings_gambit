@@ -86,7 +86,20 @@ module piece_body(base_radius) {
 /* calculates the radius of a circle cross-section if we took a slice of a sphere
  * height has to be less than radius 
  */
-function radius_of_sphere_slice(radius, height) = 
-  radius * cos(asin (height / radius));
+function radius_of_sphere_slice(radius, slice_height) = 
+  radius * cos(asin(slice_height / radius));
 
+/* calculate the height from midpoint of circle cross-section if we took a slice 
+ * of a sphere 
+ */
+function height_of_sphere_slice(radius, slice_radius) = 
+  radius * sin(acos(slice_radius / radius));
+
+/* calculates the radius of a perpendicular slice of a cone given the slice height */
+function radius_of_cone_slice(radius, cone_height, slice_height) = 
+  radius * (1 - slice_height / cone_height);
+
+/* calculates the height of a perpendicular slice of a cone given the slice radius */
+function height_of_cone_slice(radius, cone_height, slice_radius) = 
+  cone_height * (1 - slice_radius / cone_height);
 
