@@ -21,7 +21,20 @@ module toytop(height, radius) {
   cylinder(height / 2, radius, 0);
   translate([0, 0, -height / 2]) cylinder(height / 2, 0, radius);
 }
-// saucer(8, 10);
+
+module saucer(height, radius, inner_radius) {
+  slice_height = height_of_cone_slice(radius, height / 2, inner_radius);
+
+  difference() {
+    toytop(height, radius);
+    for (i = [0 : 1]) {
+      mirror([0, 0, i]) 
+        translate([0, 0, slice_height]) 
+          cylinder(height, inner_radius, inner_radius);
+    }
+  }
+}
+// saucer(8, 10, 5);
 
 module teardrop(head_ratio, radius) {
   theta = asin(head_ratio);
