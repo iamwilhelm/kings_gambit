@@ -57,6 +57,18 @@ module neck(height, radius) {
 }
 // neck(20, 10);
 
+module collar(neck_radius) {
+  saucer(neck_radius, neck_radius);
+  translate([0, 0, neck_radius * 0.5]) {
+    saucer(10, neck_radius * 0.8);
+    translate([0, 0, neck_radius]) { 
+      for (i = [0 : $children - 1]) {
+        child(i);
+      }
+    }
+  }
+}
+
 module piece_body(base_radius) {
   base_height = 0.8 * base_radius;
 
