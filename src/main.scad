@@ -1,5 +1,6 @@
 use <pawn.scad>
 use <bishop.scad>
+use <rook.scad>
 
 for (px = [0:3]) {
   for (py = [0:3]) {
@@ -12,6 +13,8 @@ for (px = [0:3]) {
         } else if (linear_idx == 8 || linear_idx == 9) {
           echo("bishop");
           Bishop(12);
+        } else if (linear_idx == 10 || linear_idx == 11) {
+          Rook(12);
         }
       }
     }
