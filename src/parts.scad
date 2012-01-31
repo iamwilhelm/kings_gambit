@@ -114,5 +114,5 @@ function radius_of_cone_slice(radius, cone_height, slice_height) =
 
 /* calculates the height of a perpendicular slice of a cone given the slice radius */
 function height_of_cone_slice(radius, cone_height, slice_radius) = 
-  cone_height * (1 - slice_radius / cone_height);
+  cone_height * (1 - slice_radius / radius);
 
