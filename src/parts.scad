@@ -55,12 +55,12 @@ module neck(height, radius) {
     cylinder(height, radius * 0.6, radius * 0.8 * 0.6);
   }
 }
-// body(20, 10);
+// neck(20, 10);
 
 module piece_body(base_radius, body_base_ratio) {
-  base_height = base_radius * 4 / 5;
-  body_radius = base_radius * cos(asin (base_height / base_radius));
-  body_height = base_radius * body_base_ratio;
+  base_height = 0.8 * base_radius;
+  body_radius = radius_of_sphere_slice(base_radius, base_height);
+  body_height = body_base_ratio * base_radius;
 
   union() {
     base(base_height, base_radius);
@@ -75,6 +75,12 @@ module piece_body(base_radius, body_base_ratio) {
       }
     }
   }
-
 }
+
+/* calculates the radius of a circle cross-section if we took a slice of a sphere
+ * height has to be less than radius 
+ */
+function radius_of_sphere_slice(radius, height) = 
+  radius * cos(asin (height / radius));
+
 
