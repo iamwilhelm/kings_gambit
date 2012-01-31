@@ -57,21 +57,15 @@ module neck(height, radius) {
 }
 // neck(20, 10);
 
-module piece_neck(base_radius, neck_base_ratio) {
+module piece_body(base_radius) {
   base_height = 0.8 * base_radius;
-  neck_radius = radius_of_sphere_slice(base_radius, base_height);
-  neck_height = neck_base_ratio * base_radius;
 
   union() {
     base(base_height, base_radius);
 
-    translate([0, 0, base_height]) {
-      neck(neck_height, neck_radius);
-
-      translate([0, 0, neck_height]) { 
-        for (i = [0 : $children - 1]) {
-          child(i);
-        }
+    translate([0, 0, base_height]) { 
+      for (i = [0 : $children - 1]) {
+        child(i);
       }
     }
   }
