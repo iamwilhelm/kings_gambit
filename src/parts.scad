@@ -8,6 +8,13 @@ module ring(height, inner_radius, outer_radius) {
 } 
 // ring(10, 8, 12);
  
+module torus(hole_radius = 10, solid_radius = 5) {
+  rotate_extrude(convexity = 10)
+    translate([hole_radius, 0, 0])
+      circle(solid_radius);
+}
+// torus(15, 5);
+
 module countersunk_ring(height, countersink_radii, outer_radius) {
   difference() {
     cylinder(height, outer_radius, outer_radius);
