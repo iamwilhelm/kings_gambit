@@ -1,6 +1,7 @@
 use <pawn.scad>
 use <bishop.scad>
 use <rook.scad>
+use <knight.scad>
 
 translate([-45, -45, 0]) {
   for (px = [0:3]) {
@@ -12,9 +13,13 @@ translate([-45, -45, 0]) {
             echo("pawn");
             Pawn(10);
           } else if (linear_idx == 6 || linear_idx == 7) {
-            Bishop(12);
+            Knight(12);
           } else if (linear_idx == 4 || linear_idx == 5) {
             Rook(12);
+          } else if (linear_idx == 3 || linear_idx == 2) {
+            Bishop(12);
+          } else if (linear_idx == 1) {
+          } else if (linear_idx == 0) {
           }
         }
       }
