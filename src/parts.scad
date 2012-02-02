@@ -5,8 +5,9 @@ module ring(height, inner_radius, outer_radius) {
     cylinder(height, outer_radius, outer_radius);
     cylinder(height, inner_radius, inner_radius);
   }
-}
-
+} 
+// ring(10, 8, 12);
+ 
 module groove(height, inner_radius, offset) {
   difference() {
     child(0);
@@ -42,10 +43,12 @@ module teardrop(head_ratio, radius) {
   h = r * tan(90 - theta);
 
   sphere(radius);
-  translate([0, 0, radius * head_ratio])
+  translate([0, 0, radius * head_ratio]) {
     cylinder(h, r, 0);
     translate([0, 0, 1.1 * h]) child(0);
+  }
 }
+// teardrop(0.5, 10);
 
 /* Building parts for chess pieces */
 module base(height = 5, radius) {
@@ -61,6 +64,7 @@ module base(height = 5, radius) {
     }
   }
 }
+// base(10, 10);
 
 module neck(height, radius) {
   union() {
@@ -81,6 +85,7 @@ module double_collar(neck_radius) {
     }
   }
 }
+// double_collar(10);
 
 module piece_body(base_radius) {
   base_height = 0.8 * base_radius;
@@ -95,6 +100,7 @@ module piece_body(base_radius) {
     }
   }
 }
+// piece_body(10);
 
 /* calculates the radius of a circle cross-section if we took a slice of a sphere
  * height has to be less than radius 
@@ -102,9 +108,8 @@ module piece_body(base_radius) {
 function radius_of_sphere_slice(radius, slice_height) = 
   radius * cos(asin(slice_height / radius));
 
-/* calculate the height from midpoint of circle cross-section if we took a slice 
- * of a sphere 
- */
+/* calculate the height from midpoint of circle cross-section if we took a slice of 
+ * a sphere */
 function height_of_sphere_slice(radius, slice_radius) = 
   radius * sin(acos(slice_radius / radius));
 
