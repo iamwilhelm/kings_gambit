@@ -51,7 +51,7 @@ module Knight(base_radius = 12) {
   neck_height = 4;
 
   piece_body(base_radius) {
-    cylinder(base_radius / 4, neck_radius, neck_radius); // glue
+    toytop(base_radius, 1.4 * neck_radius); // glue
     knight_head(neck_radius);
   }
 }
