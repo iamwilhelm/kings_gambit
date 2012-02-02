@@ -17,7 +17,8 @@ module knight_face() {
         import("knight_face.dxf");
 }
 
-module knight_angled() {
+// specialized module to angularlize the horse's face
+module angle_face() {
   translate([0, 0, 9])
     rotate([0, 15, 0])
       translate([0, 0, -9.5])
@@ -29,11 +30,11 @@ module knight_head(radius) {
     scale(1.8) {
       intersection() {
         knight_profile();
-        knight_angled() knight_face();
+        angle_face() knight_face();
       }
     }
 
-    // countersunk ring
+    // countersunk ring to fit the horse on the base
     difference() {
       cylinder(10, 2 * radius, 2 * radius);
       cylinder(10, radius, 1.6 * radius);
