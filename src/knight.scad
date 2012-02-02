@@ -12,7 +12,7 @@ module knight_profile() {
 // every 15px in inkscape is 4 units in openscad
 module knight_face() {
   rotate([90, 0, 90])
-    translate([-4, 0, 0])
+    translate([-4.1, 0, 0])
       linear_extrude(height = 25, convexity = 10, center = true)
         import("knight_face.dxf");
 }
