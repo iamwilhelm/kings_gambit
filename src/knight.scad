@@ -11,7 +11,7 @@ module knight_profile() {
 
 // every 15px in inkscape is 4 units in openscad
 module knight_face() {
-  rotate([90, 0, 90])
+  rotate([110, 0, 90])
     translate([-4.1, 0, 0])
       linear_extrude(height = 25, convexity = 10, center = true)
         import("knight_face.dxf");
@@ -25,9 +25,13 @@ module angle_face() {
         child(0);
 }
 
-module knight_head(radius) {
+module knight_head(radius, ratio = 1.8) {
+  neck_countersink_ratio = 1.6 / 1.8 * ratio;
+  neck_mid_height = ratio * 100 / 18;
+  height = ratio * 16;
+
   difference() {
-    scale(1.8) {
+    scale(ratio) {
       intersection() {
         knight_profile();
         angle_face() knight_face();
@@ -35,10 +39,9 @@ module knight_head(radius) {
     }
 
     // countersunk ring to fit the horse on the base
-    difference() {
-      cylinder(10, 2 * radius, 2 * radius);
-      cylinder(10, radius, 1.6 * radius);
-    }
+    countersunk_ring(neck_mid_height, 
+                     [radius, neck_countersink_ratio * radius], 
+                     ratio * radius);
   }
 }
 

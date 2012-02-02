@@ -8,6 +8,14 @@ module ring(height, inner_radius, outer_radius) {
 } 
 // ring(10, 8, 12);
  
+module countersunk_ring(height, countersink_radii, outer_radius) {
+  difference() {
+    cylinder(height, outer_radius, outer_radius);
+    cylinder(height, countersink_radii[0], countersink_radii[1]);
+  }
+ 
+}
+
 module groove(height, inner_radius, offset) {
   difference() {
     child(0);
