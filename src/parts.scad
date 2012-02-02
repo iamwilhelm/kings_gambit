@@ -67,17 +67,17 @@ module teardrop(head_ratio, radius) {
 
 /* Building parts for chess pieces */
 module base(height = 5, radius) {
-  indent_height = 3;
-  indent_ratio = 0.6;
-  indent_groove = height * 0.4;
-  indent_offset = height * 0.6;
+  bump_height = 2 / 5 * height;
+  bump_radius = radius_of_sphere_slice(radius, bump_height);
 
-  groove(height * 0.15, radius * 0.8, height * 0.3) {
+  union() {
     intersection() {
       cylinder(h = height, r = radius);
       sphere(radius);
     }
+    translate([0, 0, bump_height]) torus(bump_radius, 0.1 * bump_radius);
   }
+  
 }
 // base(10, 10);
 
