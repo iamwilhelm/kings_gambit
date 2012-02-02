@@ -1,7 +1,7 @@
 use <parts.scad>;
 
 $fn=30;
-module Pawn(base_radius) {
+module Pawn(base_radius = 10) {
   base_height = base_radius * 4 / 5;
   neck_radius = radius_of_sphere_slice(base_radius, base_height);
   neck_height = 3 * neck_radius;
