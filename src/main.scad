@@ -3,10 +3,13 @@ use <bishop.scad>
 use <rook.scad>
 use <knight.scad>
 
-translate([-45, -45, 0]) {
+chess_square_side = 64;
+spacing = chess_square_side / 2;
+
+translate([-(spacing * 3 / 2), -(spacing * 3 / 2), 0]) {
   for (px = [0:3]) {
     for (py = [0:3]) {
-      translate([px * 30, py * 30, 0]) {
+      translate([px * spacing, py * spacing, 0]) {
         assign(linear_idx = px * 4 + py) {
           echo(linear_idx);
           if (linear_idx >= 8) {
@@ -18,7 +21,11 @@ translate([-45, -45, 0]) {
           } else if (linear_idx == 3 || linear_idx == 2) {
             Bishop(12);
           } else if (linear_idx == 1) {
+            cylinder(r=15, h=75);
           } else if (linear_idx == 0) {
+            // US Chess Federation's official rules of chess state that 
+            // King's diameter is about 40% of its height 
+            cylinder(r=15, h=80);
           }
         }
       }
