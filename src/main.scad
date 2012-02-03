@@ -10,7 +10,6 @@ translate([-45, -45, 0]) {
         assign(linear_idx = px * 4 + py) {
           echo(linear_idx);
           if (linear_idx >= 8) {
-            echo("pawn");
             Pawn(10);
           } else if (linear_idx == 6 || linear_idx == 7) {
             Knight(12);
@@ -26,4 +25,3 @@ translate([-45, -45, 0]) {
     }
   }
 }
-
