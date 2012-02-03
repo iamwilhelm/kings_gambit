@@ -6,7 +6,7 @@ module bishop_head(head_ratio, neck_radius) {
     // the bishop head with a dollop on top
     union() {
       teardrop(head_ratio, neck_radius)
-        sphere(neck_radius / 3);
+        translate([0, 0, -neck_radius / 3]) sphere(neck_radius / 3);
     }
 
     // the bishop slot
