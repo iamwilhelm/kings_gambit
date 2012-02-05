@@ -89,18 +89,30 @@ module neck(height, radius) {
 }
 // neck(20, 10);
 
-module double_collar(neck_radius) {
-  toytop(neck_radius, neck_radius);
-  translate([0, 0, neck_radius * 0.5]) {
-    toytop(10, neck_radius * 0.8);
-    translate([0, 0, neck_radius]) { 
-      for (i = [0 : $children - 1]) {
-        child(i);
+module double_collar(inner_radius, outer_radius) {
+  big_collar_radius = outer_radius;
+  big_collar_offset = height_of_cone_slice(big_collar_radius,
+                                           big_collar_radius,
+                                           inner_radius);
+  little_collar_radius = 0.8 * outer_radius;
+  little_collar_offset = height_of_cone_slice(little_collar_radius,
+                                              little_collar_radius,
+                                              inner_radius);
+  little_big_collar_offset = big_collar_offset + little_collar_offset;
+
+  translate([0, 0, big_collar_offset]) {
+    toytop(2 * big_collar_radius, big_collar_radius);
+    translate([0, 0, little_big_collar_offset]) {
+      toytop(2 * little_collar_radius, little_collar_radius);
+      translate([0, 0, little_collar_offset]) {
+        for (i = [0 : $children - 1]) {
+          child(i);
+        }
       }
     }
   }
 }
-// double_collar(10);
+// double_collar(10, 15) circle(10);
 
 module piece_body(base_radius) {
   base_height = 0.8 * base_radius;
