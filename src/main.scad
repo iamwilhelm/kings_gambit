@@ -23,7 +23,6 @@ translate([-(spacing * 3 / 2), -(spacing * 3 / 2), 0]) {
             Bishop(12);
           } else if (linear_idx == 1) {
             Queen(15);
-            % cylinder(r=15, h=75);
           } else if (linear_idx == 0) {
             // US Chess Federation's official rules of chess state that 
             // King's diameter is about 40% of its height 
