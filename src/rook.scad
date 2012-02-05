@@ -57,7 +57,7 @@ module Rook(base_radius = 12) {
   base_height = base_radius * 4 / 5;
   neck_bottom_radius = radius_of_sphere_slice(base_radius, base_height);
   neck_top_radius = 0.9 * neck_bottom_radius; // should be encapsulated in rook neck
-  neck_height = 3.5 * neck_bottom_radius;
+  neck_height = 4 * neck_bottom_radius;
 
   piece_body(base_radius) {
     rook_neck(neck_height, neck_bottom_radius) {
