@@ -83,8 +83,8 @@ module base(height = 5, radius) {
 
 module neck(height, radius) {
   union() {
-    cylinder(height * 0.2, radius, radius * 0.8);
-    cylinder(height, radius * 0.6, radius * 0.8 * 0.6);
+    cylinder(height * 0.2, radius, radius * 0.85);
+    cylinder(height, radius * 0.75, radius * 0.65);
   }
 }
 // neck(20, 10);
