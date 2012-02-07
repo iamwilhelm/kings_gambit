@@ -72,6 +72,31 @@ module teardrop(head_ratio, radius) {
 }
 // teardrop(0.5, 10);
 
+// creates a cylinder with rounded cornders
+module rounded_cylinder(h, r1, r2, rc = 4, r = -1) {
+  tolerance = 0.03;
+  module shape(h, r1, r2) {
+    hull() {
+      translate([0, 0, -tolerance])
+        torus(r1 - rc, rc, center = false);
+      translate([0, 0, h - rc + tolerance])
+        torus(r2 - rc, rc);
+    }
+  }
+  if (r == -1) {
+    shape(h, r1, r2);
+  } else {
+    shape(h, r, r);
+  }
+}
+// rounded_cylinder(15, 15, 20);
+// translate([50, 0, 0]) cylinder(15, 15, 20);
+// translate([100, 0, 0])
+//   difference() {
+//     cylinder(15, 15, 20);
+//     rounded_cylinder(15, 15, 20);
+//   }
+
 /* Building parts for chess pieces */
 module base(height = 5, radius) {
   bump_height = 2 / 5 * height;
