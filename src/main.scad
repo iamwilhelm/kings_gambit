@@ -3,6 +3,7 @@ use <bishop.scad>
 use <rook.scad>
 use <knight.scad>
 use <queen.scad>
+use <king.scad>
 
 chess_square_side = 64;
 spacing = chess_square_side / 2;
@@ -12,7 +13,6 @@ translate([-(spacing * 3 / 2), -(spacing * 3 / 2), 0]) {
     for (py = [0:3]) {
       translate([px * spacing, py * spacing, 0]) {
         assign(linear_idx = px * 4 + py) {
-          echo(linear_idx);
           if (linear_idx >= 8) {
             Pawn(10);
           } else if (linear_idx == 6 || linear_idx == 7) {
@@ -24,9 +24,7 @@ translate([-(spacing * 3 / 2), -(spacing * 3 / 2), 0]) {
           } else if (linear_idx == 1) {
             Queen(15);
           } else if (linear_idx == 0) {
-            // US Chess Federation's official rules of chess state that 
-            // King's diameter is about 40% of its height 
-            cylinder(r=15, h=80);
+            King(15);
           }
         }
       }
