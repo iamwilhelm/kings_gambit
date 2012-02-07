@@ -15,14 +15,14 @@ module queen_head(height, radius) {
   dollop_radius = 0.2 * poof_radius;
   dollop_offset = poof_radius + 0.25 * dollop_radius;
 
-  // the ridged rim for the crown
+  // the notched rim for the crown
   difference() {
     // make the rounded rim
     // NOTE: we add the rim round because we just need it a little bigger to get the 
     // right size to cut out the crown notches
     rounded_cylinder(rim_height + rim_round, radius, rim_radius + rim_round, rim_round);
 
-    // then cut out the divets in the rim
+    // then cut out the notches in the rim
     translate([0, 0, rim_cutout_origin_height]) {
       for (i = [0 : 10]) {
         rotate([rim_cutout_angle, 0, i * 360 / 10]) 
