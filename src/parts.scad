@@ -8,10 +8,17 @@ module ring(height, inner_radius, outer_radius) {
 } 
 // ring(10, 8, 12);
  
-module torus(hole_radius = 10, solid_radius = 5) {
-  rotate_extrude(convexity = 10)
-    translate([hole_radius, 0, 0])
-      circle(solid_radius);
+module torus(hole_radius = 10, solid_radius = 5, center = true) {
+  module shape(hole_radius, solid_radius) {
+    rotate_extrude(convexity = 10)
+      translate([hole_radius, 0, 0])
+        circle(solid_radius);
+  }
+  if (center == true) {
+    shape(hole_radius, solid_radius);
+  } else {
+    translate([0, 0, solid_radius]) shape(hole_radius, solid_radius);
+  }
 }
 // torus(15, 5);
 
