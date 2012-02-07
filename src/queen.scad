@@ -45,7 +45,7 @@ module queen_head(height, radius) {
   }
 }
 
-module Queen(base_radius = 30) {
+module Queen(base_radius = 15) {
   base_height = base_radius * 4 / 5;
   neck_radius = radius_of_sphere_slice(base_radius, base_height);
   neck_height = 4 * neck_radius;
