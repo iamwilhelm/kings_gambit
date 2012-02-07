@@ -5,6 +5,7 @@ $fn=30;
 module queen_head(height, radius) {
   rim_height = 0.6 * height;
   rim_radius = 1.75 * radius;
+  rim_round = rim_radius / 8;
   rim_cutout_origin_height = 2 * rim_height;
   rim_cutout_angle = 2 * atan(rim_cutout_origin_height / rim_radius);
   rim_valley_radius = 0.8 * rim_radius;
@@ -17,11 +18,9 @@ module queen_head(height, radius) {
   // the ridged rim for the crown
   difference() {
     // make the rounded rim
-    hull() {
-      cylinder(rim_height, radius, rim_radius);
-      translate([0, 0, rim_height])
-        torus(rim_radius, rim_radius / 8);
-    }
+    // NOTE: we add the rim round because we just need it a little bigger to get the 
+    // right size to cut out the crown notches
+    rounded_cylinder(rim_height + rim_round, radius, rim_radius + rim_round, rim_round);
 
     // then cut out the divets in the rim
     translate([0, 0, rim_cutout_origin_height]) {
