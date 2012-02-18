@@ -24,3 +24,5 @@ public/system
 *.sqlite3
 db/development.sqlite3
 
+# various openscad directories should be ignored
+print/*
