@@ -5,6 +5,11 @@ King's Gambit is a 3D printable chess set inspired by the classic Staunton desig
 
 In an [announcement post](http://iamwil.posterous.com/designing-kings-gambit-and-using-openscad) on my blog, I give some details and some pictures about King's Gambit. 
 
+[Thingiverse page for King's Gambit](http://www.thingiverse.com/thing:15388)
+
+[Follow me on twitter](http://twitter.com/iamwil)
+
+
 Print it out
 ------------
 
