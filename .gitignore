@@ -25,4 +25,4 @@ public/system
 db/development.sqlite3
 
 # various openscad directories should be ignored
-print/*
+print/*.gcode
