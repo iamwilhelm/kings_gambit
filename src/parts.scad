@@ -100,7 +100,7 @@ module rounded_cylinder(h, r1, r2, rc = 4, r = -1) {
 /* Building parts for chess pieces */
 module base(height = 5, radius) {
   bump_height = 2 / 5 * height;
-  bump_radius = radius_of_sphere_slice(radius, bump_height);
+  bump_radius = 0.95 * radius_of_sphere_slice(radius, bump_height);
 
   union() {
     intersection() {
