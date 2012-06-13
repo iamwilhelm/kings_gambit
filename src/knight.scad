@@ -45,7 +45,7 @@ module knight_head(radius, ratio = 1.8) {
   }
 }
 
-module Knight(base_radius = 12) {
+module Knight(base_radius = 14.5) {
   base_height = base_radius * 4 / 5;
   neck_radius = radius_of_sphere_slice(base_radius, base_height);
   neck_height = 4;

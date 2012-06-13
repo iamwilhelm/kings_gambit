@@ -14,17 +14,17 @@ translate([-(spacing * 3 / 2), -(spacing * 3 / 2), 0]) {
       translate([px * spacing, py * spacing, 0]) {
         assign(linear_idx = px * 4 + py) {
           if (linear_idx >= 8) {
-            Pawn(10);
+            Pawn();
           } else if (linear_idx == 6 || linear_idx == 7) {
-            Knight(12);
+            Knight();
           } else if (linear_idx == 4 || linear_idx == 5) {
-            Rook(12);
+            Rook();
           } else if (linear_idx == 3 || linear_idx == 2) {
-            Bishop(12);
+            Bishop();
           } else if (linear_idx == 1) {
-            Queen(15);
+            Queen();
           } else if (linear_idx == 0) {
-            King(15);
+            King();
           }
         }
       }

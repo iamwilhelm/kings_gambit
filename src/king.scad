@@ -41,7 +41,7 @@ module king_head(height, radius) {
     holy_hand_grenade(cross_height, cross_radius);
 }
 
-module King(base_radius = 15) {
+module King(base_radius = 15.5) {
   base_height = base_radius * 4 / 5;
   neck_radius = radius_of_sphere_slice(base_radius, base_height);
   neck_height = 4.5 * neck_radius;

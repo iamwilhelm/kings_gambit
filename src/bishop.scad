@@ -17,7 +17,7 @@ module bishop_head(head_ratio, neck_radius) {
     }
 }
 
-module Bishop(base_radius = 12) {
+module Bishop(base_radius = 14.5) {
   base_height = base_radius * 4 / 5;
   neck_radius = radius_of_sphere_slice(base_radius, base_height);
   neck_height = 3 * neck_radius;
