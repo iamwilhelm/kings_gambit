@@ -12,7 +12,7 @@ module queen_head(height, radius) {
 
   poof_radius = rim_valley_radius;
   poof_offset = 2 / 3 * rim_height;
-  dollop_radius = 0.2 * poof_radius;
+  dollop_radius = 0.35 * poof_radius;
   dollop_offset = poof_radius + 0.25 * dollop_radius;
 
   // the notched rim for the crown
@@ -38,7 +38,7 @@ module queen_head(height, radius) {
 
   // add the poofy part of crown on top.
   translate([0, 0, poof_offset]) {
-    sphere(rim_valley_radius);
+    sphere(poof_radius);
     translate([0, 0, dollop_offset])
       sphere(dollop_radius);
   }
@@ -47,7 +47,7 @@ module queen_head(height, radius) {
 module Queen(base_radius = 15) {
   base_height = base_radius * 4 / 5;
   neck_radius = radius_of_sphere_slice(base_radius, base_height);
-  neck_height = 4 * neck_radius;
+  neck_height = 4.65 * neck_radius;
   inner_collar_radius = 0.65 * neck_radius; 
   outer_collar_radius = neck_radius;
   head_height = 1.5 * base_height;

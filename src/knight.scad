@@ -52,7 +52,7 @@ module Knight(base_radius = 14.5) {
 
   piece_body(base_radius) {
     toytop(base_radius, 1.4 * neck_radius); // glue
-    knight_head(neck_radius);
+    scale(1.3) knight_head(neck_radius);
   }
 }
 
