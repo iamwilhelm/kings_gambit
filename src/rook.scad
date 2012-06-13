@@ -41,7 +41,7 @@ module rook_battlement(height, radius) {
       for (i = [0:5]) {
         rotate(a = [0, 0, i * 360 / 6]) 
           translate([-1.5, 0, 0.5 * height])
-            cube([3, 10, 4]);
+            cube([height / 3, 1.2 * battlement_radius, height]);
       }
 
       // cut out circular space at top
