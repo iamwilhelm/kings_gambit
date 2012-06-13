@@ -13,7 +13,7 @@ module cross(height, width, depth, thickness) {
 
 module holy_hand_grenade(height, radius) {
   cross_height = height - radius;
-  cross_width = 1.5 * radius;
+  cross_width = 1.25 * radius;
   cross_depth = 0.2 * height;
   cross_thickness = 0.4 * height;
 
