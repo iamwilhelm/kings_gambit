@@ -52,3 +52,9 @@ All the pieces start with a piece_body(), and then build from there. The pawn, b
 
 The knight is uniquely different from all other pieces. Currently, it uses two *.svg files exported to *.dxf. One is the knight face, and the other is the knight profile. The *.dxf files are imported, and extruded into a 3D shape, and then intersected. Eventually, I think I will abandon this method and use spheres and hulls instead to make a more organic shape, though it will take longer to render.
 
+TODOs
+-----
+
+- fill in gap in knight's neck
+- make king's cross printable
+- thicken pawn's collar
